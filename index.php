@@ -1,6 +1,10 @@
 <?php
     require 'header.php';
-    require 'oeuvres.php';
+    require 'bdd.php';
+
+    // récupération des oeuvres dans la BDD
+    $bdd = connexionbdd();
+    $oeuvres = $bdd->query('SELECT * FROM oeuvres')
 ?>
 <div id="liste-oeuvres">
     <?php foreach($oeuvres as $oeuvre): ?>
