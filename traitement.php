@@ -21,5 +21,11 @@ if (
     $image = htmlspecialchars($_POST['image']);
     $description = htmlspecialchars($_POST['description']);
     // On envoi la nouvelle oeuvre en BDD
+    require 'bdd.php';
+    $bdd = connexionbdd();
+    $requete = $bdd->prepare('INSERT INTO oeuvres (titre, artiste, image, description) VALUES (?, ?, ?, ?)');
+    $requete->execute([$titre, $artiste, $image, $description]);
+    // On redirige sur la page nouvellement créé
+    header('Location: oeuvre.php?id=' . $bdd->lastInsertId());
 }
 ?>
