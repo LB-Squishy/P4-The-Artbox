@@ -4,7 +4,7 @@
 
     // récupération des oeuvres dans la BDD
     $bdd = connexionbdd();
-    $oeuvres = $bdd->query('SELECT * FROM oeuvres')
+    $oeuvres = $bdd->query('SELECT * FROM oeuvres');
 ?>
 <div id="liste-oeuvres">
     <?php foreach($oeuvres as $oeuvre): ?>
